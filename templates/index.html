@@ -3,27 +3,35 @@
 <head>
     <title>Resume Screening System</title>
 </head>
-
 <body>
 
 <h1>Resume Screening System</h1>
 
-<h2>Match Percentage</h2>
-<p>{{ percentage }}%</p>
+<form action="/match" method="post" enctype="multipart/form-data">
 
-<h2>Matched Skills</h2>
-<ul>
-{% for skill in matched %}
-    <li>{{ skill }}</li>
-{% endfor %}
-</ul>
+    <label>Upload Resume PDF:</label>
+    <br><br>
 
-<h2>Missing Skills</h2>
-<ul>
-{% for skill in missing %}
-    <li>{{ skill }}</li>
-{% endfor %}
-</ul>
+    <input type="file" name="resume" required>
+
+    <br><br>
+
+    <label>Enter Job Description:</label>
+
+    <br><br>
+
+    <textarea name="job_description"
+              rows="10"
+              cols="50"
+              required></textarea>
+
+    <br><br>
+
+    <button type="submit">
+        Check Match
+    </button>
+
+</form>
 
 </body>
 </html>
