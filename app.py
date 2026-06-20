@@ -20,8 +20,9 @@ def match():
     text = ""
 
     for page in reader.pages:
-        if page.extract_text():
-            text += page.extract_text()
+        page_text = page.extract_text()
+        if page_text:
+            text += page_text
 
     cleaned_text = re.sub(r'[^a-zA-Z ]', ' ', text)
     cleaned_text = cleaned_text.lower()
